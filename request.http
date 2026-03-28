@@ -1,0 +1,70 @@
+### ============================================================
+### BRANDS – przez GATEWAY (8080)
+### ============================================================
+
+### 1. Pobierz wszystkie brandy
+GET http://localhost:8080/api/brands
+Accept: application/json
+
+### 2. Dodaj nowy brand
+POST http://localhost:8080/api/brands
+Content-Type: application/json
+
+{
+  "brandName": "Szoczek",
+  "country": "Poland",
+  "dateOfEstablishment": "2020-01-01"
+}
+
+### 3. Pobierz brand po ID
+GET http://localhost:8080/api/brands/0ecc2bdd-60b8-417d-b253-b429d5ab6302
+Accept: application/json
+
+### 4. Zaktualizuj brand
+PUT http://localhost:8080/api/brands/0ecc2bdd-60b8-417d-b253-b429d5ab6302
+Content-Type: application/json
+
+{
+  "brandName": "Fanta Zero"
+}
+
+### 5. Usuń brand
+DELETE http://localhost:8080/api/brands/0ecc2bdd-60b8-417d-b253-b429d5ab6302
+
+
+### ============================================================
+### INGREDIENTS – przez GATEWAY (8080)
+### ============================================================
+
+### 6. Lista wszystkich składników
+GET http://localhost:8080/api/ingredients
+Accept: application/json
+
+### 7. Pobierz składnik po ID
+GET http://localhost:8080/api/ingredients/7253e5c2-6d33-4c67-aa71-1c3b8fe98944
+Accept: application/json
+
+### 8. Dodaj nowy składnik
+POST http://localhost:8080/api/ingredients
+Content-Type: application/json
+
+{
+  "flavor": "pineapple",
+  "sparkling": true,
+  "brandId": "c6c941ea-a192-43ef-b026-57fdd5f2857c",
+  "brandName": "Sprite"
+}
+
+### 9. Aktualizuj składnik
+PUT http://localhost:8080/api/ingredients/7253e5c2-6d33-4c67-aa71-1c3b8fe98944
+Content-Type: application/json
+
+{
+  "flavor": "pineapple",
+  "sparkling": false,
+  "brandId": "c6c941ea-a192-43ef-b026-57fdd5f2857c",
+  "brandName": "Fanta"
+}
+
+### 10. Usuń składnik
+DELETE http://localhost:8080/api/ingredients/7253e5c2-6d33-4c67-aa71-1c3b8fe98944
