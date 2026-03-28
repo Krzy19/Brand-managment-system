@@ -1,0 +1,36 @@
+<h2>Add Ingredient</h2>
+
+<form #form="ngForm">
+
+  <label>Flavor:</label>
+  <input
+    type="text"
+    name="flavor"
+    [(ngModel)]="flavor"
+    required
+    minlength="2"
+    #flavorRef="ngModel"
+  />
+
+  <label style="margin-left:10px">
+    <input
+      type="checkbox"
+      name="sparkling"
+      [(ngModel)]="sparkling"
+    />
+    Sparkling
+  </label>
+
+  <div *ngIf="flavorRef.invalid && flavorRef.touched" style="color:red">
+    Flavor is required (min 2 characters)
+  </div>
+
+  <div *ngIf="errorMessage" style="color: red">
+    {{ errorMessage }}
+  </div>
+
+  <button (click)="save()" [disabled]="form.invalid">
+    Save
+  </button>
+
+</form>

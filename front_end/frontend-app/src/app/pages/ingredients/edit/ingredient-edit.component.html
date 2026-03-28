@@ -1,0 +1,6 @@
+<h2>Edit Ingredient</h2>
+
+<label>Flavor:</label>
+<input [(ngModel)]="ingredient.flavor" />
+<label style="margin-left:10px"><input type="checkbox" [(ngModel)]="ingredient.sparkling" /> Sparkling</label>
+<button (click)="save()">Save</button>

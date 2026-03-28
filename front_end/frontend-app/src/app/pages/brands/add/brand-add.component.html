@@ -1,0 +1,42 @@
+<h2>Add Brand</h2>
+
+<div>
+  <label>Name:</label>
+  <input
+    type="text"
+    name="brandName"
+    required
+    #brandNameRef="ngModel"
+    [(ngModel)]="brandName">
+
+  <label>Date of establishment:</label>
+  <input
+    type="date"
+    name="dateOfEstablishment"
+    required
+    #dateRef="ngModel"
+    [(ngModel)]="dateOfEstablishment">
+
+  <label>Country:</label>
+  <input
+    type="text"
+    name="country"
+    required
+    minlength="2"
+    #countryRef="ngModel"
+    [(ngModel)]="country">
+</div>
+
+<div>
+  <div *ngIf="brandNameRef.invalid && brandNameRef.touched">
+    Name is required
+  </div>
+  <div *ngIf="dateRef.invalid && dateRef.touched">
+    Date is required
+  </div>
+  <div *ngIf="countryRef.invalid && countryRef.touched">
+    Country is required (min 2 chars)
+  </div>
+</div>
+
+<button (click)="save()">Save</button>

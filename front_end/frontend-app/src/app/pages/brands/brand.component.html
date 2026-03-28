@@ -1,0 +1,48 @@
+<div>
+  <h1>Brands</h1>
+
+  <div id="message">
+    <div *ngIf="errorMessage">
+      <strong>Error:</strong> {{ errorMessage }}
+    </div>
+
+    <div *ngIf="isLoading">
+      Loading brands...
+    </div>
+
+    <div *ngIf="!isLoading && brands.length === 0">
+      No brands found.
+    </div>
+  </div>
+
+  <button *ngIf="!isLoading" (click)="goAdd()">
+    Add New Brand
+  </button>
+
+  <div id="listContainer">
+    <table>
+      <thead>
+      <tr>
+        <th>Brand Name</th>
+        <th>Date of establishment</th>
+        <th>Country</th>
+
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="!isLoading && brands.length > 0">
+      <tr *ngFor="let b of brands">
+        <td>{{ b.brandName }}</td>
+        <td>{{ b.dateOfEstablishment }}</td>
+        <td>{{ b.country }}</td>
+        <td>
+          <button (click)="goEdit(b.id)">Edit</button>
+          <button (click)="goDetails(b.id)">Details</button>
+          <button (click)="delete(b.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

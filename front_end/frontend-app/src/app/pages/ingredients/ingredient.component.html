@@ -1,0 +1,14 @@
+<h2>Ingredient Details</h2>
+
+<button (click)="goBack()">Back to Brand</button>
+
+<div *ngIf="isLoading">Loading ingredient...</div>
+<div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+<div *ngIf="!isLoading && ingredient">
+  <p><strong>Id:</strong> {{ ingredient.id }}</p>
+  <p><strong>Flavor:</strong> {{ ingredient.flavor }}</p>
+  <p><strong>Sparkling:</strong> {{ ingredient.sparkling ? 'Yes' : 'No' }}</p>
+
+  <h3>Brand </h3>
+  <p *ngIf="ingredient.brandId"><strong>Brand ID:</strong> {{ ingredient.brandId }}</p>
+</div>

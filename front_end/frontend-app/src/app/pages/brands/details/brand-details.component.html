@@ -1,0 +1,28 @@
+<h2>Brand Details</h2>
+
+<button (click)="goBack()">Back to Brands</button>
+
+<h3>Name: {{ brand?.brandName }}</h3>
+<ul>
+  <li>id: {{brand?.id}}</li>
+  <li>date of establishment: {{brand?.dateOfEstablishment}}</li>
+  <li>country: {{brand?.country}}</li>
+</ul>
+
+
+<button (click)="addElement()">Add new ingredient</button>
+<div *ngIf="isLoading">Loading ingredients...</div>
+<div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+
+<ul *ngIf="!isLoading && ingredients.length === 0" class="ingredients-list">No ingredients found.</ul>
+
+<ul *ngIf="!isLoading && ingredients.length > 0" class="ingredients-list">
+  <li *ngFor="let e of ingredients">
+    {{ e.flavor }} <span>({{ e.sparkling ? 'sparkling' : 'still' }})</span>
+    <button (click)="goElement(e.id)">Details</button>
+    <button class="edit" (click)="goEditElement(e.id)">Edit</button>
+    <button class="delete" (click)="deleteElement(e.id)">Delete</button>
+  </li>
+</ul>
+
+

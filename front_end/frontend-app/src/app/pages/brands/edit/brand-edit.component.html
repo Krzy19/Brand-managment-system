@@ -1,0 +1,48 @@
+<h2>Edit Brand</h2>
+
+<form #form="ngForm">
+
+  <label>Name:</label>
+  <input
+    type="text"
+    name="brandName"
+    [(ngModel)]="brand.brandName"
+    required
+    #nameRef="ngModel">
+
+  <label>Date of establishment:</label>
+  <input
+    type="date"
+    name="dateOfEstablishment"
+    [(ngModel)]="brand.dateOfEstablishment"
+    required
+    #dateRef="ngModel">
+
+  <label>Country:</label>
+  <input
+    type="text"
+    name="country"
+    [(ngModel)]="brand.country"
+    required
+    minlength="2"
+    #countryRef="ngModel">
+
+
+
+  <div *ngIf="nameRef.invalid && nameRef.touched">
+    Name is required
+  </div>
+
+  <div *ngIf="dateRef.invalid && dateRef.touched">
+    Date is required
+  </div>
+
+  <div *ngIf="countryRef.invalid && countryRef.touched">
+    Country is required (min 2 chars)
+  </div>
+
+  <button (click)="save()" [disabled]="form.invalid">
+    Save
+  </button>
+
+</form>
